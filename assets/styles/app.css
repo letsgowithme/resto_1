@@ -1,3 +1,274 @@
-body {
-    background-color: lightgray;
+/* Headline text */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+/* text body*/
+  @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
+/* font p */
+  @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300&display=swap');
+
+  /* Title*/
+  @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+
+:root {
+  --main_bg_color: rgb(54, 50, 50);
+  --nav_bg_color: #B6AC97;
+  --gold: #906427;
+  --darkbrown: #392C1E;
+ 
 }
+
+
+.body
+ {
+  /* min-height: 100vh; */
+  width: 100%;
+  background-color:  var(--main_bg_color);
+  
+  /* font-family: 'Lora', serif; */
+  /* font-family: 'Hind Madurai', sans-serif; */
+  /* font-family: 'Montserrat', sans-serif; */
+  
+}
+.container {
+display: flex; 
+flex-direction: column;
+
+/* height: 100vh; */
+
+}
+.navbar,
+.footer {
+  background-color: var(--nav_bg_color);
+ 
+}
+.navbar a,
+.footer a {
+  color: white;
+  
+}
+.nav-link  {
+  font-family: 'Lora', serif;
+  font-size: 1.2em;
+}
+
+.main_title {
+  font-family: 'Pinyon Script', cursive;
+  font-weight: 500;
+  font-size: 5em;
+  letter-spacing: 2px;
+  color: rgb(208, 206, 206);
+}
+
+.main_sub_title {
+ font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 2em;
+  letter-spacing: 1px;
+}
+.menu_block-title {
+  
+  font-weight: semi-bold; 
+  /* color: rgb(35, 28, 28);  */
+}
+.dish_title,
+.menu_block-title {
+  font-family: 'Lora', serif;
+}
+.btn-reservation {
+background-color: var(--gold);
+color: white;
+font-size: 1.8em;
+font-weight: 500;
+font-family: 'Lora', serif;
+}
+.btn-reservation:hover {
+  background-color: var(--nav_bg_color);
+ border: 2px solid var(--gold);
+ color: var(--darkbrown);
+
+ transition: ease-in;
+ font-weight: 700;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.choiceList-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+select {
+  width: 300px;
+}
+.menu-wrapper {
+  background-color: var(--nav_bg_color);
+  color: var(--darkbrown);
+  border-radius: 10px; border: 2px solid golden;
+}
+/* page menu */
+.h1-page {
+  font-family: 'Montserrat', sans-serif;
+}
+.h5-page {
+  font-family: 'Lora', serif;
+}
+.card-text {
+  font-family: 'Hind Madurai', sans-serif;
+  font-weight: 700;
+}
+.menu-wrapper {
+background-color: #ead16da2;
+border: 1px solid #948e8eb8;
+box-shadow: 12px 12px 2px 1px rgba(171, 159, 46, 0.568);
+}
+.menu_conditions {
+  color: rgb(61, 61, 58);
+}
+.menu_block-title {
+  color: rgb(97, 98, 9);
+  padding-top: 2em;
+}
+/* reservation page */
+.form-row {
+  height: 3em;
+}
+.choiceList-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid gray;
+}
+/* card */
+.card-title {
+  /* cursor: pointer; */
+  position:absolute; 
+  margin-top: 8%; 
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  font-family: 'Lora', serif;
+  font-size: 2em; 
+
+}
+.card-title:hover {
+  opacity: 1;
+   transition: fade-in 2s ease; 
+   background-color: rgba(11, 56, 69, 0.656);
+   border-radius: 10px;
+   /* cursor: pointer; */
+  
+}
+.imageFile {
+  min-width: 350px;
+  min-height: 300px;
+  
+ 
+}
+/* .imageFile:hover {
+  min-width: 450px;
+  min-height: 400px;
+} */
+
+.cat_imageFile:hover {
+opacity: 0.7;
+transition: ease-in-out;
+}
+ .class {
+  transform: translateX(-50%);
+  color: #053665;
+ }
+  
+  .hr_menu {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #f2eaea;
+    color: #333;
+    text-align: center;
+    height: 7px;
+   
+  }
+  
+  .hr_menu:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+  }
+  .capitalize {
+    text-transform: capitalize;
+  }
+  .cat-btn {
+    min-width: 350px; 
+    max-width: 500px; 
+    margin: 2em;  
+    border-radius: 0 100% 0 100%; 
+    background-color: #b5a10a;
+    font-size: 1.6em;
+    box-shadow: 5px 7px 2px #8f8640;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .cat-btn:hover {
+    background-color: #534b0e;
+    border: 2px solid white;
+    transition: ease-in-out;
+    box-shadow: 5px 7px 2px #cdc58b;
+    /* border-radius: 50%;  */
+  }
+  .h1-cat_name { 
+    font-weight: bold; 
+    /* letter-spacing: 2px; color: #b5a10a; */
+    /* text-shadow: -4px 1px 3px #cdc58b; */
+    font-family: 'Lora', serif;
+  }
+  .h1_schedule_line {
+    color:  #fdf5a4;
+    font-family: 'Lora', serif;
+  }
+  .truc {
+    color: #cbbf60;
+    color: silver; 
+    color: #a39d6b; 
+    color: #1f1b1b; 
+    text-shadow: #fce1a6;
+    color: rgb(239, 1, 1);
+  }
+  /* reservation */
+  /* .slot {
+    width: 100px; 
+    padding: 10px;
+    margin: 15px;
+    background-color: rgb(223, 3, 3);
+    border-radius: 10px;
+    
+  } */
+  .slots_name {
+    color:white;
+    font-weight: bold;
+  }
+
+  .hidden {
+    display: none;
+  }
+ .visible {
+  display: block;
+ }
+ #message_closed {
+  background: rgb(4, 168, 56)!important; 
+  color: white; 
+  height: 5em;
+ }
+ #other_date_choose:hover {
+    color: rgb(160, 160, 7)!important;
+    background-color: white!important;
+    transition: 1.5s linear;
+ }
+ .disabled {
+  cursor: not-allowed;
+ }
+ .active {
+  cursor: pointer;
+ }
