@@ -24,9 +24,9 @@ console.log('app.js works');
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// import jquery from 'jquery';
-// import $ from 'jquery';
-// const $ = require('jquery');
+import jquery from 'jquery';
+import $ from 'jquery';
+
 global.$ = global.jQuery = $;
 // const datepicker = require('js-datepicker')
  
