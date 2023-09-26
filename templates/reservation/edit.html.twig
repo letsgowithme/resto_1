@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Reservation
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<h1>Reservations</h1>
+
+		{{ form_start(form) }}
+
+		<div class="form-group">
+			{{ form_label(form.fullName) }}
+			{{ form_widget(form.fullName) }}
+			<div class="form-error">
+				{{ form_errors(form.fullName) }}
+			</div>
+		</div>
+       <h5 class="text-light">Nombre de convives</h5>
+		<div class="form-group">
+			{{ form_label(form.nbPeople) }}
+			{{ form_widget(form.nbPeople) }}
+			<div class="form-error">
+				{{ form_errors(form.nbPeople) }}
+			</div>
+		</div>
+         <h5 class="text-light">La date</h5>
+		<div class="form-group">
+			{{ form_label(form.date) }}
+			{{ form_widget(form.date) }}
+			<div class="form-error">
+				{{ form_errors(form.date) }}
+			</div>
+		</div>
+         <h5 class="text-light">Horaires</h5>
+		<div class="choiceList-wrapper mb-4">
+			{% for field in form.daySlot %}
+				<div style="min-width: 15%;">
+					{{ form_widget(field) }}
+					{{ form_label(field) }}
+				</div>
+			{% endfor %}
+		</div>
+	
+<h5 class="text-light">Allergies</h5>
+	<div class="choiceList-wrapper">
+		{% for field in form.allergies %}
+			<div style="min-width: 15%;">
+				{{ form_widget(field) }}
+				{{ form_label(field) }}
+			</div>
+		{% endfor %}
+	
+</div>
+
+
+{# <a href="{{ path('reservation.show', {'id': reservation.id}) }}">show</a> #}
+
+{# <a href="{{ path('reservation.new') }}">Nouvelle réservation</a> #}
+{{ form_end(form) }}
+
+
+
+</div>{% endblock %}

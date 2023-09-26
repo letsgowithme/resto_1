@@ -1,0 +1,11 @@
+<div class="text-center">
+ 	{% if app.user %}
+<button type="button" class="btn btn-reservation btn-lg mb-4 btn-primary mt-4">
+<a class="nav-link" href="/reservation/user_new" class="text-light reserve_btn">Réserver la table</a>
+</button>
+{% else %}
+<button type="button" class="btn btn-reservation btn-lg mb-4 btn-primary mt-4">
+<a href="/reservation/new" class="text-light reserve_btn">Réserver la table</a>
+</button>
+{% endif %}
+</div>

@@ -1,0 +1,27 @@
+<div class="d-flex flex-column align-items-center text-center  text-light mt-4">
+<h4 class="down_line_names py-3 fs-5">Visiter le site</h4>
+<ul class="mt-4 text-start text-light visit_site_links" style="text-decoration: none;">
+        <li>
+          <a class="down_link" href="/">Accueil</a>
+        </li>
+        <li>
+          <a class="down_link" href="/category">La Carte</a>
+        </li>
+        <li>
+          <a class="down_link" href="/menu">Menu</a>
+        </li>
+      
+        {% if not app.user %}
+        <li>
+          <a class="down_link"  href="/reservation/new">Réserver la table</a>
+        </li>
+        {% endif %}
+        {% if app.user %}
+           <li>
+          <a class="down_link"  href="/reservation/user_new">Réserver la table</a>
+        </li>
+        {% endif %}
+    
+      </ul>
+</div>
+

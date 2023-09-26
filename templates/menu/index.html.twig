@@ -1,20 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MenuController!{% endblock %}
+{% block title %}Menu index
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/iryna/resto_project/src/Controller/MenuController.php'|file_link(0) }}">src/Controller/MenuController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/iryna/resto_project/templates/menu/index.html.twig'|file_link(0) }}">templates/menu/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<div class="container text-center mt-4 mb-4">
+	 {% for message in app.flashes('success') %}
+			<div class="alert alert-success_message">
+				{{ message }}
+			</div>
+		{% endfor %} 
+    <h1 class="h5-page mt-4 mb-4" style="color: #b5a10a;">Menu du marché</h1>
+		<div class="menu-wrapper">
+			{% for menu in menus %}
+				<div class="mt-4" style="min-width: 350px;">
+					<div class="card-body text-center">
+							<h4 class="menu_block-title fs-3 h5-page text-capitalize" href="{{ path('menu.show', {id: menu.id}) }}">Formule
+								{{ menu.title }}</h4>
+						<p class="card-text mt-4 fs-5 menu_conditions" style="color: rgb(35, 28, 28); ;">(
+							{{ menu.conditions }}
+							)</p>
+						<p class="card-text mb-4 mt-3 fs-4 me-2 text-light">{{ menu.description }}
+							{{ menu.price }}€</p>
+							</div>
+							</div>
+							<hr class="hr_menu">
+								{% endfor %}
+						<hr>						
+						</div>
+							</div>
+							{% include "partials/_btn_reserver.html.twig" %}
 {% endblock %}

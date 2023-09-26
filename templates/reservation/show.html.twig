@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}reservation
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+	<h1>Reservation</h1>
+
+	<table class="table">
+		<tbody>
+        {# {% if is_granted('ROLE_ADMIN') %}
+			<tr>
+				<th>Id</th>
+				<td>{{ reservation.id }}</td>
+			</tr>
+            {% endif %} #}
+						<tr>
+				<th>Nom / prénom</th>
+				<td>{{ reservation.fullName }}</td>
+			</tr>
+			<tr>
+				<th>Nombre de couverts</th>
+				<td>{{ reservation.nbPeople }}</td>
+			</tr>
+			<tr>
+				<th>La date</th>
+				<td>{{ reservation.date ? reservation.date|date('Y-m-d') : '' }}</td>
+			</tr>
+			{% if reservation.daySlot %}
+				<tr>
+					<th>MIDI</th>
+					<td>{{ reservation.daySlot ? reservation.daySlot|date('H:i') : '' }}</td>
+                    </tr>
+                <tr>
+                    <th>SOIR</th>
+                    <td> - </td>
+				</tr>
+
+			{% else %}
+				<tr>
+					<th>MIDI</th>
+                 <td> - </td>
+					<th>SOIR</th>
+                    </tr>
+                    <tr>
+					
+				</tr>
+			{% endif %}
+			<tr>
+				<th>Allergies</th>
+				<td>
+				{% for allergies in reservation.allergies %}
+					<span class="badge bg-primary mb-4 fs-6">{{ allergies.name|raw }}</span>
+				{% endfor %}
+                </td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('reservation.index') }}">Liste de réservations</a>
+<br>
+	<a href="{{ path('reservation.edit', {'id': reservation.id}) }}">Modifier</a>
+
+	{# {{ include('reservation/_delete_form.html.twig') }} #}
+    </div>
+{% endblock %}

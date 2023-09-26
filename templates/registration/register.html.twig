@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	
+    {# {% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %} #}
+		{# {% if error %}
+			<div class="alert alert-danger">
+				{{ error.messageKey|trans(error.messageData, 'security') }}
+			</div>
+		{% endif %} #}
+<div class="container mt-4 w-75" >
+	<h1>Inscription</h1>
+
+	{{ form_start(registrationForm) }}
+	{{ form_row(registrationForm.fullName, {
+            label: 'Nom / prénom'
+        }) }}
+
+
+	{{ form_row(registrationForm.nbPeople, {
+            label: 'Nombre de convives'
+        }) }}
+					{{ form_row(registrationForm.nbChildren, {
+            label: 'Nombre d\'enfants'
+        }) }}
+
+	<div class="form-group">
+		{{ form_label(registrationForm.allergies) }}
+		<br>
+		<div class="choiceList-wrapper">
+			{% for field in registrationForm.allergies %}
+				<div style="min-width: 15%;">
+				<div class=" text-light">	{{ form_widget(field) }}
+					{{ form_label(field) }}</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+  
+
+	
+
+	{{ form_row(registrationForm.email) }}
+	{{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}
+
+	{{ form_end(registrationForm) }}
+</div>{% endblock %}

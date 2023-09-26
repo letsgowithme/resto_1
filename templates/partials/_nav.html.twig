@@ -1,0 +1,82 @@
+sa<head>
+	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+</head>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center" style="z-index: 5;">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" 
+    type="button" 
+    data-bs-toggle="collapse" 
+    data-bs-target="#navbarColor01" 
+    aria-controls="navbarColor01" 
+    aria-expanded="false" 
+    aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Accueil
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/category">La Carte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/menu">Menu</a>
+        </li>
+       
+        {% if not app.user %}
+        <li class="nav-item">
+          <a class="nav-link" href="/reservation/new">Réserver la table</a>
+        </li>
+        {% endif %}
+        {% if app.user %}
+           <li class="nav-item">
+          <a class="nav-link" href="/reservation/user_new">Réserver la table</a>
+        </li>
+        {% endif %}
+       
+        </ul>
+       {% if not app.user %}
+			<ul class="navbar-nav ms-auto d-lg-flex align-items-lg-end">
+				<li class="nav-item lg-me-2 lg-ms-4">
+					<a class="nav-link" href="/connexion">Connexion</a>
+				</li>
+				<li class="nav-item lg-me-4">
+					<a class="nav-link" href="/inscription">Inscription</a>
+				</li>
+			
+			{% endif %}
+      </ul>
+      <div class="d-flex">
+		<ul class="navbar-nav me-auto">
+			{% if app.user %}
+				<li class="dropdown nav-item" style="margin-right: 5rem;">
+					<a class="nav-link dropdown-toggle fs-4 fw-bold" 
+          data-bs-toggle="dropdown" href="#" role="button" 
+          aria-haspopup="true" aria-expanded="false" 
+          style="color: white;"><span id="username">{{ app.user.fullName }}
+          </span></a>
+					<div class="dropdown-menu">
+						{% if 'ROLE_ADMIN' in app.user.roles %}
+							<a class="dropdown-item  fw-bold" href="/admin">Tableau de bord</a>
+						{% endif %}
+						<div class="dropdown-divider"></div>
+            <a class="dropdown-item fw-bold" href="{{ path('app_user.edit', {id : app.user.id}) }}">Modifier le profil</a>
+						<a class="dropdown-item fw-bold" href="{{ path('app_logout') }}">Déconnextion</a>
+            <hr>
+            <a class="dropdown-item fw-bold" href="{{ path('app_user_delete', {id : app.user.id}) }}">Supprimer le profil</a>
+										{% endif %}
+				</li>
+			</div>
+		</li>
+	</ul>
+</div>
+</div>
+    
+    </div>
+  </div>
+</nav>
+

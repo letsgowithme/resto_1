@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Category index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/iryna/resto_project/src/Controller/CategoryController.php'|file_link(0) }}">src/Controller/CategoryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/iryna/resto_project/templates/category/index.html.twig'|file_link(0) }}">templates/category/index.html.twig</a></code></li>
-    </ul>
+<div class="container mt-4">
+	<div class="d-flex justify-content-center flex-wrap">
+		 {% for category in categories %}
+			<div class="cat-card mb-3 me-3 text-sm-center" style="width: 500px;">
+				<button type="button" class="bnt-primary p-2 cat-btn"> 
+				<a href="{{ path('app_category_show', {id: category.id}) }}" 
+				class="text-light capitalize cat_name" 
+				style="text-decoration: none; font-weight: bold;">{{ category.name }}
+				</a>
+				</button>
+					<div class="gallery__image imageFile">
+						<a href="{{ path('app_category_show', {id: category.id}) }}"><img src="{{ vich_uploader_asset(category, 'imageFile') }}" class="imageFile cat_imageFile img-fluid w-100 shadow-1-strong rounded mb-4"
+						style="max-width: 600px; height: 300px; cursor: pointer;"></a>
+					
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 </div>
+</div>
+{% include "partials/_btn_reserver.html.twig" %}
 {% endblock %}

@@ -1,20 +1,20 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello CardController!{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/iryna/resto_project/src/Controller/CardController.php'|file_link(0) }}">src/Controller/CardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/iryna/resto_project/templates/card/index.html.twig'|file_link(0) }}">templates/card/index.html.twig</a></code></li>
-    </ul>
+<div class="mt-4 px-sm-2 px-lg-4">
+	<div class="d-flex justify-content-center flex-wrap">
+		{% for card in cards %}
+			<div class="mb-3 me-3" style="min-width: 350px; max-width: 26rem;">
+				<div class="card-body text-center d-flex flex-column align-items-center">
+					<h4 class="card-title text-capitalize text-center text-light" 
+					style="position: absolute; margin-top: 90px; padding: 30px 70px;" 
+					>
+					{{ card.name }}
+						{# <a href="{{ path('card.show', {id: card.id}) }}">{{ card.name }}</a> #}
+					</h4>
+					<div class="gallery__image imageFile">
+						<img src="{{ vich_uploader_asset(card, 'imageFile') }}" class="imageFile img-fluid w-100 shadow-1-strong rounded mb-4">
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 </div>
-{% endblock %}
+
