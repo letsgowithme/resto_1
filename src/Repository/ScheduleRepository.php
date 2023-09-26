@@ -21,6 +21,24 @@ class ScheduleRepository extends ServiceEntityRepository
         parent::__construct($registry, Schedule::class);
     }
 
+    public function save(Schedule $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(Schedule $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
 //    /**
 //     * @return Schedule[] Returns an array of Schedule objects
 //     */
@@ -36,13 +54,13 @@ class ScheduleRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Schedule
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+   public function findOneByDay($day): ?Schedule
+   {
+       return $this->createQueryBuilder('s')
+           ->andWhere('s.day = :day')
+           ->setParameter('day', $day)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
 }

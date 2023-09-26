@@ -21,6 +21,24 @@ class ReservationRepository extends ServiceEntityRepository
         parent::__construct($registry, Reservation::class);
     }
 
+    public function save(Reservation $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(Reservation $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
 //    /**
 //     * @return Reservation[] Returns an array of Reservation objects
 //     */
@@ -45,4 +63,24 @@ class ReservationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+// public function findOneByDaySlot($daySlot): ?Reservation
+//    {
+//        return $this->createQueryBuilder('r')
+//            ->andWhere('r.daySlot = :daySlot')
+//            ->setParameter('daySlot', $daySlot)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
+public function findByDate($value): array
+   {
+       return $this->createQueryBuilder('r')
+           ->orderBy('r.date', 'ASC')
+           ->setMaxResults(44)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
+
 }
