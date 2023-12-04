@@ -15,7 +15,7 @@
 				{{ error.messageKey|trans(error.messageData, 'security') }}
 			</div>
 		{% endif %} #}
-<div class="container mt-4 w-75" >
+<div class="container mt-4 w-75 text-light fs-4">
 	<h1>Inscription</h1>
 
 	{{ form_start(registrationForm) }}
@@ -34,7 +34,7 @@
 	<div class="form-group">
 		{{ form_label(registrationForm.allergies) }}
 		<br>
-		<div class="choiceList-wrapper">
+		<div class="choiceList-wrapper" style="background-color: #363232;">
 			{% for field in registrationForm.allergies %}
 				<div style="min-width: 15%;">
 				<div class=" text-light">	{{ form_widget(field) }}

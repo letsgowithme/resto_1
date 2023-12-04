@@ -90,16 +90,6 @@ class RegistrationFormType extends AbstractType
                 'expanded' => true
             ])
 
-            // ->add('roles', ChoiceType::class, [
-            //     'attr' => [
-            //         'class' => 'form-control ms-4 mb-4'
-            //     ],
-            //     'multiple' => true,
-            //     'choices'  => [
-            //          'Utilisateur' => 'ROLE_USER',
-            //          'Admin' => 'ROLE_ADMIN'
-            //     ]
-            // ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
@@ -124,7 +114,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary mt-4 text-light'
+                    'class' => 'btn btn-primary mt-4 text-light fs-4'
                 ],
                 'label' => 'Enregistrer'
             ]);
