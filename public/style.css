@@ -10,7 +10,7 @@
 
 
 :root {
-  --main_bg_color: #363232;
+  --main_bg_color: #nav;
   --nav_bg_color: #B6AC97;
   --gold: #906427;
   --darkbrown: #392C1E;
@@ -506,7 +506,7 @@
    
   }
   .nav-item {
-    padding-top: 1em;
+    padding-top: 0;
   }
   .dropdown-item,
   #username {
