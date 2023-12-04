@@ -25,18 +25,24 @@ class HomeController extends AbstractController
             
         ]);
     }
+
     #[Route('/legal_notice', name: 'footer.legal_notice', methods: ['GET'])]
-    public function legalNotice(
-      
+    public function legalNotice(ScheduleRepository $scheduleRepository 
     ): Response
     {
-        return $this->render('footer/legal_notice.html.twig');
+        $schedules = $scheduleRepository->findAll(); 
+        return $this->render('footer/legal_notice.html.twig', [
+            'schedules' => $schedules,
+        ]);
     }
+
     #[Route('/privacy', name: 'footer.privacy_policy', methods: ['GET'])]
-    public function privacy(
-       
+    public function privacy(ScheduleRepository $scheduleRepository
     ): Response
     {
-        return $this->render('footer/privacy_policy.html.twig');
+        $schedules = $scheduleRepository->findAll(); 
+        return $this->render('footer/privacy_policy.html.twig', [        
+            'schedules' => $schedules,
+        ]);
     }
 }
